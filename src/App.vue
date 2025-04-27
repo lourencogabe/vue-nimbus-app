@@ -7,6 +7,10 @@
   <div>
     <searchInput />
   </div>
+  <!-- Cartão metereológico -->
+  <div>
+    <weatherCard />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -20,4 +24,5 @@ const formattedData = new Date().toLocaleDateString('pt-br', {
 
 //Importa o componente de busca
 import searchInput from './components/search-input.vue'
+import weatherCard from './components/weather-card.vue'
 </script>

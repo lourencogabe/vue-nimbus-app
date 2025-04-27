@@ -13,16 +13,20 @@
     </div>
 
     <!-- clima atual -->
-    <div class="text-center flex-1">
-      <img src="" alt="icon" width="200" class="mx-auto -mb-10" />
-      <h1 class="text-9xl mb-2">[temperatura]</h1>
-      <p class="text-2xl">[condição]</p>
+    <div class="flex items-center justify-center gap-2">
+      <!-- <i class="fa-solid fa-temperature-half"></i> -->
+      <i alt="icon" width="200" :class="`${icon} text-8xl`"></i>
+      <h1 class="text-9xl mb-2 ml-3.5">25</h1>
     </div>
-
+    <div class="flex items-center justify-center mt-3.5">
+      <p class="text-2xl">CONDICION</p>
+    </div>
     <BorderLine />
-
-    <div class="flex justify-end items-center gap-1 mt-10">
-      <button>More <i class="fa-solid fa-arrow-right text-sm -mb-px"></i></button>
-    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { getTemperatureIcons } from '@/utils/temperature-icon'
+
+const icon = getTemperatureIcons(1)
+</script>
