@@ -8,7 +8,7 @@
       </div>
       <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-clock"></i>
-        <h1 class="text-3xl">[hora local]</h1>
+        <h1 class="text-3xl">{{ formattedHour }}</h1>
       </div>
     </div>
 
@@ -29,4 +29,9 @@
 import { getTemperatureIcons } from '@/utils/temperature-icon'
 
 const icon = getTemperatureIcons(1)
+
+const formattedHour = new Date().toLocaleTimeString('pt-br', {
+  hour: 'numeric',
+  minute: 'numeric',
+})
 </script>
