@@ -3,10 +3,6 @@
   <div class="text-center mb-6">
     {{ formattedData }}
   </div>
-  <!-- Barra de busca -->
-  <div>
-    <searchInput />
-  </div>
   <!-- Cartão metereológico -->
   <div>
     <weatherCard />
@@ -23,6 +19,5 @@ const formattedData = new Date().toLocaleDateString('pt-br', {
 })
 
 //Importa o componente de busca
-import searchInput from './components/search-input.vue'
 import weatherCard from './components/weather-card.vue'
 </script>
