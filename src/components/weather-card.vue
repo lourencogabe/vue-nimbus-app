@@ -15,7 +15,7 @@
     <!-- clima atual -->
     <div class="flex items-center justify-center gap-2">
       <!-- <i class="fa-solid fa-temperature-half"></i> -->
-      <i alt="icon" width="200" :class="`${icon} text-8xl`"></i>
+      <i alt="icon" width="200" :class="`${icon} text-8xl ${color}`"></i>
       <h1 class="text-9xl mb-2 ml-3.5">25</h1>
     </div>
     <div class="flex items-center justify-center mt-3.5">
@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { getTemperatureIcons } from '@/utils/temperature-icon'
 
-const icon = getTemperatureIcons(1)
+const { icon, color } = getTemperatureIcons(15)
 
 const formattedHour = new Date().toLocaleTimeString('pt-br', {
   hour: 'numeric',
