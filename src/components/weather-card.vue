@@ -1,26 +1,20 @@
 <template>
-  <div>
-    <!-- search field -->
-    <form @submit.prevent="fetchWeather">
-      <div class="bg-white border border-indigo-600/30 rounded-lg shadow-lg flex items-center">
-        <i class="fa-solid fa-magnifying-glass p-2 text-indigo-600"></i>
-        <!--V-model aguarda o que o usuário digita e armazena na variavel searchCity-->
-        <input
-          v-model="city"
-          type="text"
-          placeholder="Encontre sua cidade"
-          class="rounded-r-lg p-2 border-0 outline-0 focus:ring-2 focus:ring-indigo-600 ring-inset w-full"
-        />
-      </div>
-    </form>
-    <!-- search suggestions -->
-    <div class="bg-white my-2 rounded-lg shadow-lg">
-      <div>
-        <button class="px-3 my-2 hover:text-indigo-600 hover:font-bold w-full text-left"></button>
-      </div>
+  <!-- search field -->
+  <form @submit.prevent="fetchWeather">
+    <div class="bg-[#353b45] rounded-lg shadow-lg flex items-center">
+      <i class="fa-solid fa-magnifying-glass p-2 text-blue-400"></i>
+      <!--V-model aguarda o que o usuário digita e armazena na variavel searchCity-->
+      <input
+        v-model="city"
+        type="text"
+        placeholder="Encontre sua cidade"
+        class="text-white rounded-r-lg p-2 border-0 outline-0 focus:ring-2 focus:to-white ring-inset w-full"
+      />
     </div>
-  </div>
-  <div class="text-white p-10 rounded-lg shadow-lg gap-6 mb-6 relative overflow-hidden">
+  </form>
+  <div
+    class="text-white bg-[#353b45] p-10 rounded-lg shadow-lg gap-6 mb-6 relative overflow-hidden mt-10"
+  >
     <!-- local e horario -->
     <div class="mb-2 flex justify-between items-center">
       <div class="flex items-center justify-center gap-2">
@@ -33,15 +27,14 @@
         <h1 class="text-3xl">{{ formattedHour }}</h1>
       </div>
     </div>
-
     <!-- clima atual -->
     <div class="flex items-center justify-center gap-2">
       <!-- <i class="fa-solid fa-temperature-half"></i> -->
-      <i alt="icon" width="200" :class="`${icon} text-8xl ${color}`"></i>
-      <h1 class="text-9xl mb-2 ml-3.5">{{ dataWeather?.temp_c }}</h1>
+      <i alt="icon" width="200" :class="`${icon} text-8xl mt-30 mr-5 ${color}`"></i>
+      <h1 class="text-9xl mb-2 mt-30">{{ dataWeather?.temp_c }}°</h1>
     </div>
-    <div class="flex items-center justify-center mt-3.5">
-      <p class="text-2xl">{{ dataWeather?.humidity }}</p>
+    <div class="flex items-center justify-center mt-30">
+      <p class="text-2xl">Humidade: {{ dataWeather?.humidity }}%</p>
     </div>
     <BorderLine />
   </div>
@@ -54,6 +47,7 @@ import { getTemperatureIcons } from '@/utils/temperature-icon'
 import { ref } from 'vue'
 
 //constantes do tipo string
+
 const city = ref<string>('')
 const icon = ref<string>('')
 const color = ref<string>('')
